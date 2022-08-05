@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap");
+
+$light: #e9eaf5;
+$neutral: #0b1821;
+$zen: #00dc6e;
+$shy: #ffeb00;
+$happy: #ff663f;
+$angry: #ff0066;
+$sad: #0098c3;
+$colors: (
+  "zen": #00dc6e,
+  "shy": #ffeb00,
+  "happy": #ff663f,
+  "angry": #ff0066,
+  "sad": #0098c3,
+);
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-marker;
+  }
+  @apply font-slab;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-neutral text-light;
+  }
+
+  @each $name, $color in $colors {
+    .wavy-#{$name} {
+      background-color: $neutral;
+      background-image: repeating-radial-gradient(
+          circle at 0 0,
+          transparent 0,
+          $neutral 10px
+        ),
+        repeating-linear-gradient($color, $color);
+    }
+    .rhombus-#{$name} {
+      background-color: $neutral;
+      background-image: linear-gradient(135deg, $color 25%, transparent 25%),
+        linear-gradient(225deg, $color 25%, transparent 25%),
+        linear-gradient(45deg, $color 25%, transparent 25%),
+        linear-gradient(315deg, $color 25%, $neutral 25%);
+      background-position: 10px 0, 10px 0, 0 0, 0 0;
+      background-size: 10px 10px;
+      background-repeat: repeat;
+    }
+    .zigzag-#{$name} {
+      background-color: $neutral;
+      opacity: 1;
+      background: linear-gradient(135deg, $color 25%, transparent 25%) -10px
+          0/
+          20px
+          20px,
+        linear-gradient(225deg, $color 25%, transparent 25%) -10px 0/ 20px 20px,
+        linear-gradient(315deg, $color 25%, transparent 25%) 0px 0/ 20px 20px,
+        linear-gradient(45deg, $color 25%, $neutral 25%) 0px 0/ 20px 20px;
+    }
+    .lines-#{$name} {
+      background-color: $neutral;
+      opacity: 1;
+      background-image: linear-gradient($color 2px, transparent 2px),
+        linear-gradient(90deg, $color 2px, transparent 2px),
+        linear-gradient($color 1px, transparent 1px),
+        linear-gradient(90deg, $color 1px, $neutral 1px);
+      background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+      background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-light text-neutral;
+  }
+  @each $name, $color in $colors {
+    .wavy-#{$name} {
+      background-color: $light;
+      background-image: repeating-radial-gradient(
+          circle at 0 0,
+          transparent 0,
+          $light 10px
+        ),
+        repeating-linear-gradient($color, $color);
+    }
+    .rhombus-#{$name} {
+      background-color: $light;
+      opacity: 1;
+      background-image: linear-gradient(135deg, $color 25%, transparent 25%),
+        linear-gradient(225deg, $color 25%, transparent 25%),
+        linear-gradient(45deg, $color 25%, transparent 25%),
+        linear-gradient(315deg, $color 25%, $light 25%);
+      background-position: 10px 0, 10px 0, 0 0, 0 0;
+      background-size: 10px 10px;
+      background-repeat: repeat;
+    }
+    .zigzag-#{$name} {
+      background-color: $light;
+      opacity: 1;
+      background: linear-gradient(135deg, $color 25%, transparent 25%) -10px
+          0/
+          20px
+          20px,
+        linear-gradient(225deg, $color 25%, transparent 25%) -10px 0/ 20px 20px,
+        linear-gradient(315deg, $color 25%, transparent 25%) 0px 0/ 20px 20px,
+        linear-gradient(45deg, $color 25%, $light 25%) 0px 0/ 20px 20px;
+    }
+    .lines-#{$name} {
+      background-color: $light;
+      opacity: 1;
+      background-image: linear-gradient($color 2px, transparent 2px),
+        linear-gradient(90deg, $color 2px, transparent 2px),
+        linear-gradient($color 1px, transparent 1px),
+        linear-gradient(90deg, $color 1px, $light 1px);
+      background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+      background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+  }
+}
+
+#title {
+  animation: titleAnim 1s infinite alternate ease-out;
+  transform: rotate(-6deg);
+  @apply text-shy;
+  text-shadow: 0px 6px 0px $sad;
+}
+
+@keyframes titleAnim {
+  0% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
+}
