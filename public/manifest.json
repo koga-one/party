@@ -1,0 +1,27 @@
+{
+  "theme_color": "#FFEB00",
+  "background_color": "#0B1821",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Party!",
+  "short_name": "Party!",
+  "description": "Great party games!",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
