@@ -148,6 +148,13 @@ a {
   }
 }
 
+@each $name, $color in $colors {
+  .button-style-#{$name} {
+    background-color: $color;
+    @apply rounded-lg px-2 py-1 text-lg font-bold text-neutral;
+  }
+}
+
 #title {
   animation: titleAnim 1s infinite alternate ease-out;
   transform: rotate(-6deg);
