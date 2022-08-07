@@ -151,7 +151,7 @@ a {
 @each $name, $color in $colors {
   .button-style-#{$name} {
     background-color: $color;
-    @apply rounded-lg px-2 py-1 text-lg font-bold text-neutral;
+    @apply rounded-lg px-2 py-1 text-lg font-bold text-neutral active:scale-90;
   }
 }
 
